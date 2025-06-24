@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Edit User{% endblock %}
+{% block content %}
+
+<h2 class="text-center mb-4">Edit User</h2>
+
+<form method="POST" class="card p-4 shadow-sm mx-auto" style="max-width: 500px;">
+    {{ form.hidden_tag() }}
+
+    {{ form.name.label(class="form-label") }}
+    {{ form.name(class="form-control mb-3") }}
+
+    {{ form.cult_token.label(class="form-label") }}
+    {{ form.cult_token(class="form-control mb-3") }}
+
+    {{ form.latitude.label(class="form-label") }}
+    {{ form.latitude(class="form-control mb-3") }}
+
+    {{ form.longitude.label(class="form-label") }}
+    {{ form.longitude(class="form-control mb-3") }}
+
+    {{ form.submit(class="btn btn-primary w-100", value="Update User") }}
+</form>
+
+{% endblock %}

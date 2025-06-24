@@ -1,0 +1,33 @@
+from enum import Enum
+
+
+class Class_type(Enum):
+    EVOLVE_YOGA = "EVOLVE YOGA"
+    HATHA_YOGA_SPECIAL = "HATHA YOGA SPECIAL"
+    HRX_WORKOUT = "HRX WORKOUT"
+    ADIDAS_STRENGTH_PLUS = "ADIDAS STRENGTH+"
+    DANCE_FITNESS = "DANCE FITNESS"
+    BURN = "BURN"
+    BOXING_BAG_WORKOUT = "BOXING BAG WORKOUT"
+
+
+class Weekday(Enum):
+    MONDAY = 0
+    TUESDAY = 1
+    WEDNESDAY = 2
+    THURSDAY = 3
+    FRIDAY = 4
+    SATURDAY = 5
+    SUNDAY = 6
+
+
+class Class_timing(Enum):
+    MORNING = "MORNING"
+    EVENING = "EVENING"
+
+
+class Class_state(Enum):
+    AVAILABLE = "AVAILABLE"
+    WAITLIST_AVAILABLE = "WAITLIST_AVAILABLE"
+    WAITLIST_FULL = "WAITLIST_FULL"
+    BOOKED = "BOOKED"

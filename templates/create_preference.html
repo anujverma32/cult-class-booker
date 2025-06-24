@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Create Preference{% endblock %}
+{% block content %}
+
+<h2 class="text-center mb-4">Create a New Preference</h2>
+<form method="POST" class="card p-4 shadow-sm mx-auto" style="max-width: 600px;">
+  {{ form.hidden_tag() }}
+
+  {{ form.user_id.label(class="form-label") }}
+  {{ form.user_id(class="form-select mb-3") }}
+
+  {{ form.center.label(class="form-label") }}
+  {{ form.center(class="form-control mb-3") }}
+
+  {{ form.timing.label(class="form-label") }}
+  {{ form.timing(class="form-select mb-3") }}
+
+  {{ form.class_type.label(class="form-label") }}
+  {{ form.class_type(class="form-select mb-3") }}
+
+  <label class="form-label">Days of the Week</label>
+  <div class="mb-2">
+    <button type="button" class="btn btn-sm btn-outline-secondary" onclick="toggleAllDays(this)">
+      Select All
+    </button>
+  </div>
+
+  <div class="mb-3" id="weekdays-checkboxes">
+    {% for subfield in form.days_of_week %}
+    {% set checkbox_id = "weekday_" + loop.index|string %}
+    <div class="form-check form-check-inline">
+      {{ subfield(class="form-check-input", id=checkbox_id) }}
+      <label class="form-check-label" for="{{ checkbox_id }}">{{ subfield.label.text }}</label>
+    </div>
+    {% endfor %}
+  </div>
+
+  {{ form.submit(class="btn btn-success w-100") }}
+</form>
+
+<script>
+  function toggleAllDays(button) {
+    const checkboxes = document.querySelectorAll('#weekdays-checkboxes input[type="checkbox"]');
+    const allChecked = [...checkboxes].every(cb => cb.checked);
+
+    checkboxes.forEach(cb => cb.checked = !allChecked);
+
+    button.textContent = allChecked ? 'Select All' : 'Deselect All';
+  }
+</script>
+
+{% endblock %}

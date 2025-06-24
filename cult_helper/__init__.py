@@ -1,0 +1,1 @@
+from cult_helper.class_booker import cult_class_booker_for_all_users
